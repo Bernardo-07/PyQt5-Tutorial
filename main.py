@@ -21,7 +21,7 @@ class MyWindow(QMainWindow):
 
     def action(self):
         print("Clicked")
-        self.label.setText("you pressed the button")
+        self.label.setText("you pressed the button (Lá ele)")
         self.update()
 
     def update(self):
