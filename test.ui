@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>451</width>
-    <height>298</height>
+    <width>454</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="button1">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>180</y>
+      <x>20</x>
+      <y>290</y>
       <width>181</width>
       <height>51</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QLabel" name="label1">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>40</y>
+      <x>10</x>
+      <y>10</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -40,13 +40,45 @@
      <string>I'm Batman</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>290</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>back to black</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="img">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>431</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>the-batman.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>451</width>
+     <width>454</width>
      <height>21</height>
     </rect>
    </property>

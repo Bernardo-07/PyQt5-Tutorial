@@ -14,21 +14,32 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(451, 298)
+        MainWindow.resize(454, 381)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.button1 = QtWidgets.QPushButton(self.centralwidget)
-        self.button1.setGeometry(QtCore.QRect(130, 180, 181, 51))
+        self.button1.setGeometry(QtCore.QRect(20, 290, 181, 51))
         self.button1.setObjectName("button1")
 
         self.label1 = QtWidgets.QLabel(self.centralwidget)
-        self.label1.setGeometry(QtCore.QRect(50, 40, 81, 21))
+        self.label1.setGeometry(QtCore.QRect(10, 10, 81, 21))
         self.label1.setObjectName("label1")
+
+        self.button2 = QtWidgets.QPushButton(self.centralwidget)
+        self.button2.setGeometry(QtCore.QRect(240, 290, 171, 51))
+        self.button2.setObjectName("button2")
+
+        self.img = QtWidgets.QLabel(self.centralwidget)
+        self.img.setGeometry(QtCore.QRect(10, 40, 431, 211))
+        self.img.setText("")
+        self.img.setPixmap(QtGui.QPixmap("the-batman.jpg"))
+        self.img.setScaledContents(True)
+        self.img.setObjectName("img")
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 451, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 454, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -59,38 +70,35 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.actionCopy.triggered.connect(lambda: self.clicked("Copy was clicked"))
-        self.actionPaste.triggered.connect(lambda: self.clicked("Paste was clicked"))
-        self.actionNew.triggered.connect(lambda: self.clicked("New was clicked"))
-        self.actionSave.triggered.connect(lambda: self.clicked("Save was clicked"))
+        self.button1.clicked.connect(self.show_img1)
+        self.button2.clicked.connect(self.show_img2)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.button1.setText(_translate("MainWindow", "click me please"))
         self.label1.setText(_translate("MainWindow", "I\'m Batman"))
+        self.button2.setText(_translate("MainWindow", "back to black"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
-
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionNew.setStatusTip(_translate("MainWindow", "Create a new file"))
         self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
-
         self.actionSave.setText(_translate("MainWindow", "Save"))
         self.actionSave.setStatusTip(_translate("MainWindow", "Save the file"))
         self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
-
         self.actionCopy.setText(_translate("MainWindow", "Copy"))
         self.actionCopy.setStatusTip(_translate("MainWindow", "Copy a file"))
         self.actionCopy.setShortcut(_translate("MainWindow", "Ctrl+C"))
-
         self.actionPaste.setText(_translate("MainWindow", "Paste"))
         self.actionPaste.setStatusTip(_translate("MainWindow", "Paste a file"))
         self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+V"))
 
-    def clicked(self, text):
-        self.label1.setText(text)
-        self.label1.adjustSize()
+    def show_img1(self):
+        self.img.setPixmap(QtGui.QPixmap("the-batman.jpg"))
+
+    def show_img2(self):
+        self.img.setPixmap(QtGui.QPixmap("back-to-black.jpg"))
 
 
 if __name__ == "__main__":
