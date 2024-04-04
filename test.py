@@ -9,14 +9,19 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(454, 381)
+        MainWindow.resize(454, 450)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        self.button = QtWidgets.QPushButton(self.centralwidget)
+        self.button.setGeometry(QtCore.QRect(130, 350, 161, 51))
+        self.button.setObjectName("button")
 
         self.button1 = QtWidgets.QPushButton(self.centralwidget)
         self.button1.setGeometry(QtCore.QRect(20, 290, 181, 51))
@@ -70,12 +75,14 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.button.clicked.connect(self.show_popup)
         self.button1.clicked.connect(self.show_img1)
         self.button2.clicked.connect(self.show_img2)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.button.setText(_translate("MainWindow", "show me that"))
         self.button1.setText(_translate("MainWindow", "click me please"))
         self.label1.setText(_translate("MainWindow", "I\'m Batman"))
         self.button2.setText(_translate("MainWindow", "back to black"))
@@ -94,11 +101,27 @@ class Ui_MainWindow(object):
         self.actionPaste.setStatusTip(_translate("MainWindow", "Paste a file"))
         self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+V"))
 
+    def show_popup(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Tutorial")
+        msg.setText("This is the thing!")
+        msg.setIcon(QMessageBox.Warning)
+        '''msg.setIcon(QMessageBox.Critical)
+        msg.setIcon(QMessageBox.Information)
+        msg.setIcon(QMessageBox.Question)'''
+        msg.setStandardButtons(QMessageBox.Retry | QMessageBox.Ignore | QMessageBox.Cancel)
+        msg.setDefaultButton(QMessageBox.Cancel)
+        msg.setInformativeText("yes sir, we have a 404 error: PAGE NOT FOUND")
+        msg.setDetailedText("idk why this is happening")
+        x = msg.exec_()
+
     def show_img1(self):
         self.img.setPixmap(QtGui.QPixmap("the-batman.jpg"))
 
     def show_img2(self):
         self.img.setPixmap(QtGui.QPixmap("back-to-black.jpg"))
+
+    
 
 
 if __name__ == "__main__":
